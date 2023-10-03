@@ -1,0 +1,20 @@
+body{
+    background-image: url("https://www.apple.com/la/ipad-pro/images/overview/hero/hero_combo__fcqcc3hbzjyy_large.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.groupCards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 150px; 
+    gap: 10px;
+}
+.img-category{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
