@@ -1,5 +1,5 @@
-import { cambiarColor, checkLeido, scrollNavegacion } from "../../funcionesGenerales/funcionalidades.js";
-
+import { cambiarColor, scrollNavegacion, checkLeido }
+    from '../../funcionesGenerales/funcionalidades.js';
 const btnNav = document.querySelectorAll('.btn-nav');
 btnNav.forEach(btn => {
     btn.addEventListener('click', e => {
@@ -10,18 +10,20 @@ btnNav.forEach(btn => {
                 scrollNavegacion(0);
                 break;
             case '2':
-                scrollNavegacion(830);
+                scrollNavegacion(490);
                 break;
             case '3':
-                scrollNavegacion(1700);
+                scrollNavegacion(1000);
                 break;
             case '4':
-                scrollNavegacion(2000);
+                scrollNavegacion(1500);
+                break;
+            case '5':
+                scrollNavegacion(2500);
                 break;
         }
     })
 })
-
 const check = document.querySelector('.check');
 const text = document.querySelector('.text');
-checkLeido(check, 'check1', 1, text);
+checkLeido(check, 'check2', '2', text);
