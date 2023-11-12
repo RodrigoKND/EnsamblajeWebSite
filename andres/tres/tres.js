@@ -32,4 +32,4 @@ btnNav.forEach(btn => {
 })
 const check = document.querySelector('.check');
 const text = document.querySelector('.text');
-checkLeido(check, 'check3', '3', text);
+checkLeido(check, 'check3', 3, text, 'Sigue asi', 'Completa antes la lección');
