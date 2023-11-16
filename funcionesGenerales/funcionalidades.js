@@ -12,7 +12,7 @@ export const cambiarColor = (btnNav, nodoActual) => {
     nodoActual.classList.add('text-info');
 }
 
-export const checkLeido = (botonCheck, llaveLocalstorage, valorLocalStorage, cambiarTexto, textoReemplazo,textoOriginal) => {
+export const checkLeido = (botonCheck, llaveLocalstorage, valorLocalStorage, cambiarTexto, textoReemplazo, textoOriginal, url) => {
     let contadorClicks = 0;
     botonCheck.addEventListener('click', e => {
         e.target.classList.remove('text-danger');
@@ -20,6 +20,7 @@ export const checkLeido = (botonCheck, llaveLocalstorage, valorLocalStorage, cam
         cambiarTexto.innerHTML = textoReemplazo;
         localStorage.setItem(llaveLocalstorage, valorLocalStorage);
         contadorClicks++;
+        lessonReaded(llaveLocalstorage, url);
 
         if (contadorClicks === 2) {
             e.target.classList.remove('text-success');
@@ -52,6 +53,20 @@ export const verifiedkeyStorage = (urlIfKeyTrue) => {
         alert(`Debe terminar todas las lecciones antes de pasar al cuestionario. 
         Te falta la lección 
         =>${keysMiss}`);
-    }else window.location.href = urlIfKeyTrue;
-    
+    } else window.location.href = urlIfKeyTrue;
+
+}
+
+export const lessonReaded = (keyStorage, nextLesson= undefined) => {
+    const item = localStorage.getItem(keyStorage);
+    if (item && typeof nextLesson !== undefined) {
+        alert('Se registró ya la lección...');
+        window.location.href = nextLesson;
+    }
+}
+
+export const loadToPage = (keyStorage, url) => {
+    window.onload = () => {
+        lessonReaded(keyStorage, url)
+    }
 }

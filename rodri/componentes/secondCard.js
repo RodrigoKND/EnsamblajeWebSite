@@ -1,4 +1,4 @@
-import { cambiarColor, scrollNavegacion, checkLeido }
+import { cambiarColor, scrollNavegacion, checkLeido, loadToPage }
     from '../../funcionesGenerales/funcionalidades.js';
 const btnNav = document.querySelectorAll('.btn-nav');
 btnNav.forEach(btn => {
@@ -26,4 +26,5 @@ btnNav.forEach(btn => {
 })
 const check = document.querySelector('.check');
 const text = document.querySelector('.text');
-checkLeido(check, 'check2', 2, text, 'Sigue asi', 'Completa antes la lección');
+checkLeido(check, 'check2', 2, text, 'Sigue asi', 'Completa antes la lección', '../../andres/tres/tres.html');
+loadToPage('check2', '../../andres/tres/tres.html');
