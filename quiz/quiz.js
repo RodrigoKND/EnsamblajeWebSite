@@ -1,35 +1,37 @@
-'use-strict';
-const body = document.querySelector('body');
-const loadWindow = () => {
-    window.addEventListener('load',() => {
-        const dialog = document.createElement('dialog');
-        const content = `
-        <div style='color:aquamarine'>Saludos, escribe tu nombre</div>
-        <input class='form-control mt-3 text-white border border-info' onchange='nameUser(event)' 
-        type='text' style='background:none'/>
-        <div class='d-flex justify-content-center'>
-            <button class='mt-4 border border-info btn' onclick='saveName(event)' style='color:aquamarine'>
-                Buena suerte
-            </button>
-        </div>
-    `
-        dialog.open = true;
-        dialog.classList.add('dialogActive', 'border', 'border-info', 'p-4')
-        dialog.innerHTML = content;
-        body.insertAdjacentElement('afterbegin', dialog);
-    })
-}
+function validarRespuestas() {
+    // Pregunta 1
+    var resp1 = document.querySelector('input[name="pregunta1"]:checked');
+    // Pregunta 2
+    var resp2 = document.querySelector('input[name="pregunta2"]:checked');
+    // Pregunta 3
+    var resp3 = document.querySelector('input[name="pregunta3"]:checked');
+    var resp4 = document.querySelector('input[name="pregunta4"]:checked');
+    var resp5 = document.querySelector('input[name="pregunta5"]:checked');
+    var resp6 = document.querySelector('input[name="pregunta6"]:checked');
+    var resp7 = document.querySelector('input[name="pregunta7"]:checked');
+    var resp8 = document.querySelector('input[name="pregunta8"]:checked');
 
-loadWindow();
-//Revisar las tres funciones por que no se elimina el evento load y no se guarda el 
-// value del input
-const nameUser = (e) => {
-    return e.target.value;
-}
+    if (resp1 && resp2 && resp3 && resp4 && resp5 && resp6 && resp7 && resp8) {
+        var puntaje = 0;
+        // Pregunta 1
+        if (resp1.value === "b") puntaje += 1;
+        // Pregunta 2
+        if (resp2.value === "c") puntaje += 1;
+        // Pregunta 3
+        if (resp3.value === "b") puntaje += 1;
+        // Pregunta 4
+        if (resp4.value === "a") puntaje += 1;
 
-const saveName = (e) => {
-    localStorage.setItem('nameu', nameUser(e));
-    const dialog = document.querySelector('dialog');
-    dialog.remove();
-    body.removeEventListener('load', loadWindow);
+        if (resp5.value === "c") puntaje += 1;
+
+        if (resp6.value === "c") puntaje += 1;
+
+        if (resp7.value === "b") puntaje += 1;
+
+        if (resp8.value === "b") puntaje += 1;
+
+        alert("¡Respuestas completas! Puntaje: " + puntaje + "/4. Puedes marcar la lección como completada.");
+    } else {
+        alert("Por favor, responde todas las preguntas antes de marcar la lección como completada.");
+    }
 }
