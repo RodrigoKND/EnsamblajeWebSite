@@ -12,3 +12,14 @@ body{
     object-fit: cover;
 }
 
+.cards{
+    position: absolute; 
+    top: 100%;
+}
+
+@media (max-width:700px){
+    .cards{
+        top: 22%;
+    }
+}
+
