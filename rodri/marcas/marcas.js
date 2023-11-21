@@ -35,8 +35,22 @@ btnNav.forEach(btn => {
 })
 const check = document.querySelector('.check');
 const text = document.querySelector('.text');
-checkLeido(check, 'check8', 8, text, 'Sigue asi', 'Completa antes la lección', undefined);
+let contadorClicks = 0;
+check.addEventListener('click', e => {
+    e.target.classList.remove('text-danger');
+    e.target.classList.add('text-success');
+    text.innerHTML = 'Sigue asi';
+    localStorage.setItem("check8", 8);
+    contadorClicks++;
 
+    if (contadorClicks === 2) {
+        e.target.classList.remove('text-success');
+        e.target.classList.add('text-danger');
+        text.innerHTML = 'Completa antes la lección';
+        localStorage.removeItem("check8");
+        contadorClicks = 0;
+    }
+})
 const quiz = document.querySelector('.quiz');
 quiz.addEventListener('click', e => {
     verifiedCheck('check8', 8);
